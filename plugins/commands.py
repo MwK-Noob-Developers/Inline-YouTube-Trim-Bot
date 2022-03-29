@@ -20,10 +20,8 @@ from utils import TG_SUCKS, FIX_TG_SUCKS
 async def start(bot, message):
     buttons = [
             [
-                InlineKeyboardButton('Search Here', switch_inline_query_current_chat=""),
-            ],
-            [
-                InlineKeyboardButton('Updates', url="https://t.me/subin_works")
+                InlineKeyboardButton('Trim', switch_inline_query_current_chat=""),
+                InlineKeyboardButton('Dev', url="https://t.me/shamilnelli")
             ]
         ]
     if len(message.command) > 1 and  (message.command[1]).startswith("tgsucks"):
@@ -37,7 +35,7 @@ async def start(bot, message):
         return
     
     await message.reply(
-        f"**Hey {message.from_user.mention},\nIam an Inline Youtube Trimmer.**\n__You can use me only via inline mode.__\n\nExample: `@TrimYtbot Niram | 1:25:1 1:26:6` or `@TrimYtbot Niram | 1800 2000`",
+        f"**Hey {message.from_user.mention},\nIam an Inline Youtube Trimmer.**\n__You can use me only via inline mode.__\n\nExample: `@smltestbot Niram | 1:25:1 1:26:6` or `@smltestbot Niram | 1800 2000`",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
 
