@@ -27,7 +27,7 @@ TG_SUCKS = {}
 FIX_TG_SUCKS = {}
 
 async def get_link(id):
-    ytdl_cmd = [ "yt-dlp", "--geo-bypass", "-g", "-f", "best[height<=?720][width<=?1280]/best", f"https://youtu.be/{id}"]
+    ytdl_cmd = [ "yt-dlp", "--geo-bypass", "-g", "-f", "best[height<=?1080][width<=?1920]/best", f"https://youtu.be/{id}"]
     process = await asyncio.create_subprocess_exec(
         *ytdl_cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
@@ -66,12 +66,12 @@ async def get_height_and_width(file):
     try:
         n = out.get("streams")
         if not n:
-            width, height = 1280, 720
+            width, height = 1920, 1080
         else:
             width=n[0].get("width")
             height=n[0].get("height")
     except Exception as e:
-        width, height = 1280, 720
+        width, height = 1920, 1080
     return width, height
 
 async def progress_bar(current, total, client, start, id, caption):
